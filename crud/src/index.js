@@ -5,6 +5,10 @@ import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 
+//json-server --watch data/db.json --port 3001
+
+//learnwithparam.com/blog/basic-routing-in-react-router/
+
 ReactDOM.render(
   <BrowserRouter>
     <App />

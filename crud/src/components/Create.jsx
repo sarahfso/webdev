@@ -1,4 +1,5 @@
 import React, {Component} from 'react'
+import axios from 'axios'
 
 export default class Create extends Component{
     
@@ -26,10 +27,27 @@ export default class Create extends Component{
     }    
 
     onSubmit(e){
+        //robinwieruch.de/react-preventdefault
         e.preventDefault() //impede que o browser faça reload, perdendo assim o dado
-        console.log('Nome: ' + this.state.nome)
+        
+        /*console.log('Nome: ' + this.state.nome)
         console.log('Curso: ' + this.state.curso)
-        console.log('IRA: ' + this.state.ira)
+        console.log('IRA: ' + this.state.ira)*/
+        
+        const novoEstudante = {nome:this.state.nome,curso:this.state.curso,ira:this.state.ira}
+        
+        axios.post('http://localhost:3001/estudantes', novoEstudante)
+        .then(
+            (res)=>{
+                console.log('Estudante '+res.data.id+' inserido com sucesso.')
+            }
+        )
+        .catch(
+            (error)=>{
+                console.log(error)
+            }
+        )
+
         this.setState({nome:'', curso:'', ira:''})
     }
 
@@ -38,24 +56,24 @@ export default class Create extends Component{
             <div style={{marginTop:10}}>
                 <h3>Criar Estudante</h3>
                 <form onSubmit={this.onSubmit}>
-                    <div className="form-group">
+                    <div className='form-group'>
                         <label>Nome: </label>
-                        <input type="text" className="form-control"
+                        <input type='text' className='form-control'
                             value={this.state.nome} onChange={this.setNome}/>
                     </div>
-                    <div className="form-group">
+                    <div className='form-group'>
                         <label>Curso: </label>
-                        <input type="text" className="form-control"
+                        <input type='text' className='form-control'
                             value={this.state.curso} onChange={this.setCurso}/>
                     </div>
-                    <div className="form-group">
+                    <div className='form-group'>
                         <label>IRA: </label>
-                        <input type="text" className="form-control"
-                            value={this.state.ira} onChange={this.setIome}/>
+                        <input type='text' className='form-control'
+                            value={this.state.ira} onChange={this.setIra}/>
                     </div>
 
-                    <div className="form-group">
-                        <input type="submit" value="Criar" className="btn btn-primary"/>
+                    <div className='form-group'>
+                        <input type='submit' value='Criar' className='btn btn-primary'/>
                     </div>
                 </form>    
             </div>

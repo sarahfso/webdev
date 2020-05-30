@@ -1,0 +1,28 @@
+{
+  "estudantes": [
+    {
+      "id": 2,
+      "nome": "Jefferson",
+      "curso": "SI",
+      "ira": 8
+    },
+    {
+      "nome": "Vitor",
+      "curso": "SI",
+      "ira": "9",
+      "id": 3
+    },
+    {
+      "nome": "Hélio",
+      "curso": "DD",
+      "ira": "8.5",
+      "id": 4
+    },
+    {
+      "nome": "Jorder",
+      "curso": "ES",
+      "ira": "9.9",
+      "id": 5
+    }
+  ]
+}
