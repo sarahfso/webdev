@@ -36,10 +36,11 @@ export default class Create extends Component{
         
         const novoEstudante = {nome:this.state.nome,curso:this.state.curso,ira:this.state.ira}
         
-        axios.post('http://localhost:3001/estudantes', novoEstudante)
+        axios.post('http://localhost:3002/estudantes/register', novoEstudante) //express
+        //axios.post('http://localhost:3001/estudantes', novoEstudante) //json-server
         .then(
             (res)=>{
-                console.log('Estudante '+res.data.id+' inserido com sucesso.')
+                console.log('Estudante '+res.data._id+' inserido com sucesso.')
             }
         )
         .catch(

@@ -1,7 +1,11 @@
 const EstudanteModel = require ('../models/EstudanteModel')
 
-let estudantes = []
-let _id = 0
+let estudantes = [
+    {_id:0,nome:'Fulano',curso:'CC',ira:8.9},
+    {_id:1,nome:'Sicrano',curso:'SI',ira:7.4},
+    {_id:2,nome:'Sabrina',curso:'DD',ira:2.3}
+]
+let _id = 3
 
 class EstudanteService{
     static register(data){
